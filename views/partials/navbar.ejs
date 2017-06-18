@@ -1,0 +1,19 @@
+	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<a class="navbar-brand" href="/">
+		<span class="nav-text"><i class="fa fa-bookmark-o" aria-hidden="true"></i>
+	    Romanticism</span></a>
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav">
+		<%if(login){%>
+			<%if(user){%>
+				<a class="nav-item nav-link" href="/profile"><span class="nav-text">Hello, <%=user.username%>. View your Profile</span></a>
+			<%}%>
+				<a class="nav-item nav-link" href="/logout"><span class="nav-text">Log Out</span></a>
+		<%}else{%>
+			<a class="nav-item nav-link" href="/login"><span class="nav-text">Log In</span></a>
+			<a class="nav-item nav-link" href="/signup"><span class="nav-text">Sign Up</span></a>
+		<%}%>
+		</div>
+	</div>

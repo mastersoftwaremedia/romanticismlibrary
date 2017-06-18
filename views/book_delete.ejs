@@ -1,0 +1,66 @@
+<!--views/book_delete.ejs-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include partials/header %>
+	</head>
+	<body>
+		<nav class="navbar navbar-toggleable-md  navbar-light bg-faded " style="background-color: #ee44aa;">	
+			<% include partials/navbar %>	
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-2">
+					<sidebar>
+						<% include partials/sidebar %>
+					</sidebar>
+				</div>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-9">
+					<content>
+						<div class="row">
+							<div class="col-sm-3"></div>
+							
+							<div class="col-sm-3">
+						<div class="content-heading">
+							<div class="card" style="width: 20rem;">
+								<div class="card-block">
+									<h4 class="card-title"><strong>Title: </strong><%=book.title%></h4>
+									<p class="card-text"><strong>Summary: </strong> <%=book.summary%></p>
+								</div>
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item"><strong>Author: </strong> <a href="<%=book.author.url%>"> <%=book.author.name%></a></li>
+									<li class="list-group-item"><strong>ISBN: </strong> <%=book.isbn%></li>
+									<li class="list-group-item"><strong>Genre: </strong> 
+										<%book.genre.forEach(function(val){%>
+											<a href="<%=val.url%>"><%=val.name%></a><span> |</span>
+										<%})%></li>
+								</ul>
+							</div>
+							
+						<br>
+							<p>Do you really want to delete this Book?</p>
+							<form action="<%=book.url+'/delete'%>" method="POST">
+								<div class="form-group">
+									<input class="form-control" type="hidden" 
+									name="deleteBook" id="deleteBook" required
+									value="<%=book._id%>" />
+									<button type="submit" class="btn btn-danger">Delete</button>
+								</div>
+							</form>
+						</div>
+						</div>
+						
+						<div class="col-sm-3"></div>
+						</div>
+					</content>
+				</div>
+			</div>
+			<br>
+			<footer>
+				<% include partials/footer %>
+			</footer>
+		</div>
+</body>
+</html>
+

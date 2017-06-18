@@ -1,0 +1,62 @@
+<!--views/author_detail.ejs-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include partials/header %>
+	</head>
+	<body>
+		<nav class="navbar navbar-toggleable-md  navbar-light bg-faded " style="background-color: #ee44aa;">	
+			<% include partials/navbar %>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-2">
+					<sidebar>
+						<% include partials/sidebar %>				
+					</sidebar>
+				</div>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-9">
+					<content>
+						<div class="content-heading">
+						
+							<div class="list-group">
+								<a class="list-group-item list-group-item-action" href="<%=author.url%>">
+									<div class="media">
+										<img class="author-detail-img d-flex mr-3" src="<%=author.imgurl%>" alt="<%=author.name%>">
+										<div class="media-body">
+											<h4 class="mt-0">Author: <%=author.name%></h4>
+											<p class="author-p"><%=author.lifespan%></p>
+											<p class="card-text"><small class="text-muted">
+											Updated 3 min ago</p>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div style="margin-left:20px;margin-top:20px;">
+								<h4>Novels</h4>
+								<dl>
+									<%if(author_books){%>
+										<%author_books.forEach(function(book){%>
+											<dt><a href="<%=book.url%>"><%=book.title%></a></dt>
+											<dd><%=book.summary%></dd>
+										<%})%>
+									<%}else{%>
+										<p>This author has no books.</p>
+									<%}%>
+								</dl>
+							</div>
+							<hr/>
+							<p class="author-a"><a href="<%=author.url+'/delete'%>">Delete Author</a> 
+								| <a href="<%=author.url+'/update'%>">Update Author</a></p>
+						</div>
+					</content>
+				</div>
+			</div>
+			
+			<footer>
+				<% include partials/footer %>
+			</footer>
+		</div>
+</body>
+</html>

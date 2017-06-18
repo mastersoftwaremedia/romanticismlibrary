@@ -1,0 +1,85 @@
+<!--views/author_update.ejs-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include partials/header %>
+	</head>
+	<body>
+		<nav class="navbar navbar-toggleable-md  navbar-light bg-faded " style="background-color: #ee44aa;">	
+			<% include partials/navbar %>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-2">
+					<sidebar>
+						<% include partials/sidebar %>
+					</sidebar>
+				</div>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-9">
+					<content>
+						<div class="content-heading">
+							<h1><%=title%></h1>	
+							<form action="<%=author.url+'/update'%>" method="POST">
+								<div class="form-group">
+									<label for="first_name">First Name</label>
+									<input type="text" class="form-control" id="first_name" 
+									name="first_name" placeholder="First Name"
+									value="<%=author.first_name || ''%>"
+									required />
+								</div>
+
+								<div class="form-group">
+									<label for="family_name">Last Name</label>
+									<input type="text" id="family_name" placeholder="Last Name" 
+									name="family_name" class="form-control"
+									value="<%=author.family_name || ''%>"
+									required />
+								</div>
+								
+								<div class="form-group">
+									<label for="date_of_birth">Date of Birth</label>
+									<input type="date" id="date_of_birth" name="date_of_birth" 
+									value="<%=author.date_of_birth_yyyy_mm_dd || ''%>"
+									class="form-control" />
+								</div>
+								
+								<div class="form-group">
+									<label for="date_of_death">Date of Death</label>
+									<input type="date" id="date_of_death" name="date_of_death"
+									value="<%=author.date_of_death_yyyy_mm_dd || ''%>"
+									class="form-control" />
+								</div>
+
+								<div class="form-group">
+									<label for="imgurl">Img Url</label>
+									<input type="url" id="imgurl" name="imgurl"
+									class="form-control" 
+									placeholder="Image Url"
+									value="<%=author.imgurl || ''%>"/>
+								</div>
+					
+								<button type="submit" class="btn btn-default">Submit</button>
+							</form>		
+
+							<%if(errors){%>
+								<ul>
+									<%errors.forEach(function(error){%>
+										<li><%=error.msg%></li>
+									<%})%>
+								</ul>
+							<%}%>
+						</div>  
+					</content>
+							<br>
+			<hr>
+				</div>
+			</div>
+	
+			<footer>
+				<% include partials/footer %>
+			</footer>
+		</div>
+</body>
+</html>
+

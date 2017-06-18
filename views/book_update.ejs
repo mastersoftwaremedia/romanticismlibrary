@@ -1,0 +1,103 @@
+<!--views/book_update.ejs-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include partials/header %>
+	</head>
+	<body>
+		<nav class="navbar navbar-toggleable-md  navbar-light bg-faded " style="background-color: #ee44aa;">	
+			<% include partials/navbar %>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-2">
+					<sidebar>
+						<% include partials/sidebar %>			
+					</sidebar>
+				</div>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-9">
+					<content>
+						<div class="content-heading">
+							<h1><%=title%></h1>	
+							<hr/>
+							<form action="<%=book.url+'/update'%>" method="POST">
+								<div class="form-group">
+									<label for="title">Title</label>
+									<input type="text" class="form-control" id="title" 
+									name="title" placeholder="Name of book"
+									required 
+									value="<%=book.title || ''%>"/>
+								</div>
+								<div class="form-group">
+									<label for="author">Author</label>
+									<select class="form-control" id="author" name="author"
+									placeholder="Select Author" required>
+										<%authors.forEach(function(author){%>											
+											<%if(typeof book!=='undefined'){%>
+												<option value="<%=author._id%>"
+												<%=book.author._id.toString()==author._id.toString() ? 'selected="selected"' : '' %> >
+													<%=author.name%>												
+												</option>
+											<%}%>
+										<%})%>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="sumamry">Description</label>
+									<textarea id="summary" placeholder="summary" name="summary" class="form-control"
+									required value="<%=book.summary || ''%>"><%=book.summary%></textarea>
+								</div>
+								<div class="form-group">
+									<label for="isbn">ISBN</label>
+									<input type="text" id="isbn" name="isbn" placeholder="ISBN13" required
+									class="form-control" value="<%=book.isbn || ''%>" />
+								</div>
+								<div class="form-group">
+									<label>Genre</label>
+									<div>
+									<%genres.forEach(function(genre){%>
+										<%if(typeof book!=='undefined'){%>
+											<div style="display:inline; padding-right:10px;">
+												<input type="checkbox" class="checkbox-input" name="genre"
+												id="<%=genre._id%>" value="<%=genre._id%>"
+												<%if(genre.checked){%>checked<%}%>  >
+												<label for="<%=genre._id%>"><%=genre.name%></label> 
+											</div>	
+										<%}%>
+									<%})%>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="imgurl">Img Url</label>
+									<input type="url" id="imgurl" name="imgurl"
+									placeholder="Image Url"
+									class="form-control" 
+									value="<%=book.imgurl || ''%>"/>
+								</div>
+							
+								<button type="submit" class="btn btn-default">Submit</button>
+							</form>		
+
+							<%if(errors){%>
+								<ul>
+									<%errors.forEach(function(error){%>
+										<li><%=error.msg%></li>
+									<%})%>
+								</ul>
+							<%}%>
+						</div>  
+					</content>
+						<br>
+			<hr>
+				</div>
+			</div>
+		
+			<footer>
+				<% include partials/footer %>
+			</footer>
+		</div>
+</body>
+</html>
+

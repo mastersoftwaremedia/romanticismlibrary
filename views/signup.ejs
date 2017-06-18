@@ -1,0 +1,40 @@
+<%include partials/_head.ejs%>
+
+<body>
+	<div class="container">
+		<div class="form-container">
+			<div class="form-thumbnail">
+				<img src="images/pinkbook2-1.svg"/>
+			</div>
+
+			<h2>Sign Up</h2>
+			<!--show any messages that come back with authentication-->
+			<%if(message.length>0){%>
+				<div class="alert alert-danger">
+					<%=message%>
+				</div>
+			<%}%>
+
+			<!--Signup Form-->
+			<form action="/signup" method="POST">			
+				<div class="form-group">
+					<input type="text" name="username"
+					class="form-control" placeholder="Username...">
+				</div>			
+				<div class="form-group">
+					<input type="email" name="email"
+					class="form-control" placeholder="Email...">
+				</div>
+
+				<div class="form-group">
+					<input type="password" name="password" 
+					class="form-control" placeholder="Password...">
+				</div>
+				<button type="submit" class="btn btn-warning btn-lg">Sign Up</button>
+			</form>
+			<hr/>
+			<p class="message">Already signed up? <a href="/login">Login</a> | <i class="fa fa-home"></i><a href="/"> Home</a>.</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!--views/genre_delete.ejs-->
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<% include partials/header %>
+	</head>
+	<body>
+		<nav class="navbar navbar-toggleable-md  navbar-light bg-faded " style="background-color: #ee44aa;">
+			<% include partials/navbar %>
+		</nav>
+	
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-2">
+					<sidebar>
+						<%include partials/sidebar%>
+					</sidebar>				
+				</div>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-9">
+					<content>
+						<div class="content-heading">
+							<div class="card">	
+								<div class="card-block">
+									<h4 class="card-title"><strong><%=title%></strong></h3>
+									<h5 class="card-subtitle mb-2 text-muted">Genre: <%=genre.name%></h5>  
+								</div>
+							</div>
+							<br>
+							<%if(genre_books.length){%>
+								<p><strong>Delete the followiing books before attemting to delete this genre.</strong></p>
+								<div style="margin-left:20px;margin-top:20px;">
+									<h4>Books</h4>
+									<dl>
+										<%if(genre_books){%>
+											<%genre_books.forEach(function(book){%>
+												<dt><a href="<%=book.url%>"><%=book.title%></a></dt>
+												<dd><%=book.summary%></dd>
+											<%})%>
+										<%}%>
+									</dl>
+								</div>
+							<%}else{%>
+								<br>
+								<p>Do you really want to delete this Genre?</p>
+								<form action="<%=genre.url+'/delete'%>" method="POST">
+									<div class="form-group"> 
+										<input type="hidden" name="genreid" id="genreid"
+										class="form-control" required 
+										value="<%=genre._id%>" />
+									</div>
+									<button type="submit" class="btn btn-danger">Delete</button>
+								</form>
+							<%}%>
+						</div>
+					</content>
+				</div>
+			</div>
+			
+			<footer>
+				<% include partials/footer %>
+			</footer>
+		</div>
+</body>
+</html>

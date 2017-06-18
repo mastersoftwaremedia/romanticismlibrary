@@ -1,0 +1,69 @@
+html,body {
+	margin:0;
+	padding:0;
+	font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.content-heading{
+	margin-top:30px;
+}
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+.index-img{
+	width:60px;
+	height:30px;
+}
+.nav-text{
+	color:#fff;
+}
+.side-text{
+	color:#ee44aa;
+}
+.jumbotron-style{
+	margin:55px auto 0;
+
+}
+.media .list-img{
+	width:13%;
+	height:2%;
+}
+.author-p{
+	font-size:20px;
+	font-weight:400;
+}
+.book-img{
+	width:80px;
+	height:100px;
+}
+.book-isbn-style{
+	font-size:13px;
+}
+
+.author-img{
+	width:100px;
+	height:120px;
+}
+.author-detail-img{
+	width:160px;
+	height:180px;
+}
+.author-a{
+	font-size:16px;
+	font-weight:400;
+}
+.footer-style{
+text-align:center;
+	margin-top:10px;
+	margin-bottom:20px;
+}
+span{
+	padding:0 10px;
+	font-size:24px;
+	font-weight:400;
+}

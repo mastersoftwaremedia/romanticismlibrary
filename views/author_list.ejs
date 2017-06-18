@@ -1,0 +1,51 @@
+<!--views/author_list.ejs-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include partials/header %>
+	</head>
+	<body>
+		<nav class="navbar navbar-toggleable-md  navbar-light bg-faded " style="background-color: #ee44aa;">	
+			<% include partials/navbar %>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-2">
+					<sidebar>
+						<% include partials/sidebar %>
+					</sidebar>
+				</div>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-9">
+					<content>
+						<div class="content-heading">
+						<h1><%=title%></h1>
+						
+						<div class="list-group">
+							<%if(author_list){%>
+								<%author_list.forEach(function(author){%>
+									<a class="list-group-item list-group-item-action" href="<%=author.url%>">
+										<div class="media">
+											<img class="author-img d-flex mr-3" src="<%=author.imgurl%>" alt="<%=author.name%>">
+											<div class="media-body">
+												<h4 class="mt-0"><%=author.name%></h4>
+												<p><%=author.lifespan%></p></span>
+											</div>
+										</div>		
+									</a>
+								<%})%>
+							<%}else{%>
+								<p>There are no authors.</p>
+							<%}%>
+						</div>
+						</div>  
+					</content>
+				</div>
+			</div>
+			<br>
+			<footer>
+				<% include partials/footer %>
+			</footer>
+		</div>
+</body>
+</html>

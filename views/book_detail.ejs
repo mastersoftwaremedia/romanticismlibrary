@@ -1,0 +1,61 @@
+<!--views/book_detail.ejs-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include partials/header %>
+	</head>
+	<body>
+		<nav class="navbar navbar-toggleable-md  navbar-light bg-faded " style="background-color: #ee44aa;">				
+			<% include partials/navbar %>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-2">
+					<sidebar>
+						<% include partials/sidebar %>				
+					</sidebar>
+				</div>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-9">
+					<content>
+						<div class="row">
+							<div class="col-sm-3"></div>
+							
+							<div class="col-sm-3">
+						<div class="content-heading">
+							<div class="card" style="width: 20rem;">
+								<img class="book-detail-img card-img-top" src="<%=book.imgurl%>" alt="<%=book.title%>">
+								<div class="card-block">
+									<h4 class="card-title"><strong>Title: </strong><%=book.title%></h4>
+									<p class="card-text"><strong>Summary: </strong> <%=book.summary%></p>
+								</div>
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item"><strong>Author: </strong> <a href="<%=book.author.url%>"> <%=book.author.name%></a></li>
+									<li class="list-group-item"><strong>ISBN: </strong> <%=book.isbn%></li>
+									<li class="list-group-item"><strong>Genre: </strong> 
+										<%book.genre.forEach(function(val){%>
+											<a href="<%=val.url%>"><%=val.name%></a><span> |</span>
+										<%})%></li>
+								</ul>
+								<div class="card-block">
+									<a href="<%=book.url+'/update'%>" class="card-link">Update Book</a>
+									<a href="<%=book.url+'/delete'%>" class="card-link">Delete Book</a>
+								</div>
+							</div>
+						
+						</div>
+						</div>
+						
+						<div class="col-sm-3"></div>
+						</div>
+					</content>
+				</div>
+			</div>
+			<br>
+			<footer>
+				<% include partials/footer %>
+			</footer>
+		</div>
+</body>
+</html>
+

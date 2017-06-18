@@ -1,0 +1,79 @@
+<!--views/index.ejs-->
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<% include partials/header %>
+	</head>
+	<body>
+		<nav class="navbar navbar-toggleable-md  navbar-light bg-faded " style="background-color: #ee44aa;">
+			<% include partials/navbar %>
+		</nav>
+	
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-2">
+					<sidebar>
+						<%include partials/sidebar%>
+					</sidebar>				
+				</div>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-9">
+					<content>
+						<div class="content-heading">
+						<h1>The Collection of Regency Era Literature</h1>
+						<p>Welcome to the Library of Romantics</p>
+						
+						<div class="card card-inverse">
+							<img class="img-fluid card-img" src="/images/pride6.jpg" alt="Card image">
+
+						</div>
+						<div class="card">
+							<div class="card-header">Featured: Pride & Prejudice</div>
+							<div class="card-block">
+								<h4 class="card-title"> The comedy of the writing lies in the depiction of manners, education, and marriage and money in the British Regency.</h4>
+								<p class="card-text">Pride and Prejudice retains the fascination of modern readers, consistently appearing near the top of lists of "most-loved books" among both literary scholars and the general public.</p>
+								<a href="#" class="btn btn-default">Read More</a>
+							</div>
+						</div>
+						<br/>
+						<div class="card-deck">
+							<div class="card">
+								<img class="img-fluid card-img-top" src="images/persuasion.jpg" alt="Card image cap">
+								<div class="card-block">
+									<h4 class="card-title text-center">Persuasion</h4>
+									<p class="card-text">Twenty-seven-year old Anne Elliot is Austen's most adult heroine. Eight years before the story proper begins, she is happily betrothed to a naval officer, Frederick Wentworth, but she precipitously breaks off the engagement when persuaded by her friend Lady Russell that such a match is unworthy. The breakup produces in Anne a deep and long-lasting regret... </p>
+									<a href="#" class="btn btn-default">Read More</a>
+									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+								</div>
+							</div>
+							<div class="card">
+								<img class="img-fluid card-img-top" src="images/charlotte.jpg" alt="Card image cap">
+								<div class="card-block">
+									<h4 class="card-title text-center">Charlotte Collins: A Continuation of Jane Austen's Pride and Prejudice</h4>
+									<p class="card-text">When Charlotte Lucas married Mr. Collins in Jane Austen's Pride and Prejudice, she believed herself to be fortunate indeed. Her nuptials gained her a comfortable home and financial security. If she acquired these things at the expense of true love, it did not matter one whit. To Charlotte, love in marriage was nothing more than a pleasant coincidence... </p>
+									<a href="#" class="btn btn-default">Read More</a>
+									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+								</div>
+							</div>
+							<div class="card">
+								<img class="img-fluid card-img-top" src="images/senseandsensibility.jpg" alt="Card image cap">
+								<div class="card-block">
+									<h4 class="card-title text-center">Sense and Sensibility</h4>
+									<p class="card-text">Marianne Dashwood wears her heart on her sleeve, and when she falls in love with the dashing but unsuitable John Willoughby she ignores her sister Elinor's warning that her impulsive behaviour leaves her open to gossip and innuendo. Meanwhile Elino ...</p>
+									<a href="#" class="btn btn-default">Read More</a>
+									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+								</div>
+							</div>
+						</div>
+						</div>
+						<hr>
+					</content>
+				</div>
+			</div>
+			
+			<footer>
+				<% include partials/footer %>
+			</footer>
+		</div>
+</body>
+</html>

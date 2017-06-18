@@ -1,0 +1,40 @@
+<!--views/profile.ejs-->
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<% include partials/header %>
+	</head>
+	<body>
+		<nav class="navbar navbar-toggleable-md  navbar-light bg-faded " style="background-color: #ee44aa;">
+			<% include partials/navbar %>
+		</nav>
+	
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-2">
+					<sidebar>
+						<%include partials/sidebar%>
+					</sidebar>				
+				</div>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-9">
+					<content>
+						<div class="container-fluid">
+							<div class="jumbotron jumbotron-style">
+								<!--Local Info-->
+								<h3><span class="fa fa-user"></span> User Profile Information</h3>
+								<br>
+								<p>
+									<strong>ID</strong>: <%=user._id %><br>
+									<strong>Username</strong>: <%=user.username %><br>
+									<strong>Email</strong>: <%=user.local.email %>
+								</p>						
+							</div>
+						</div>
+					<content>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+

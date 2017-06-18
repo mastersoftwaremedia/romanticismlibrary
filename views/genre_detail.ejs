@@ -1,0 +1,57 @@
+<!--views/genre_detail.ejs-->
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<% include partials/header %>
+	</head>
+	<body>
+		<nav class="navbar navbar-toggleable-md  navbar-light bg-faded " style="background-color: #ee44aa;">
+			<% include partials/navbar %>
+		</nav>
+	
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-2">
+					<sidebar>
+						<%include partials/sidebar%>
+					</sidebar>				
+				</div>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-9">
+					<content>
+						<div class="content-heading">
+							<div class="card">	
+								<div class="card-block">
+									<h3 class="card-title"><strong><%=title%></strong></h3>
+									<h4 class="card-subtitle mb-2 text-muted"><strong>Genre: <%=genre.name%></strong></h4>   
+									<a href="<%=genre.url+'/delete'%>" class="card-link">Delete Genre</a>
+									<a href="<%=genre.url+'/update'%>" class="card-link">Update Genre</a>
+								</div>
+							</div>
+								
+							<div style="margin-left:20px;margin-top:20px;">
+								<h4>Books</h4>
+								<dl>
+									<%if(genre_books){%>
+										<%genre_books.forEach(function(book){%>
+											<dt><a href="<%=book.url%>"><%=book.title%></a></dt>
+											<dd><%=book.summary%></dd>
+										<%})%>
+									<%}else{%>
+										<p>This genre has no books.</p>
+									<%}%>
+								</dl>
+							</div>
+							
+
+						</div>
+					</content>
+				</div>
+			</div>
+			
+			<footer>
+				<% include partials/footer %>
+			</footer>
+		</div>
+</body>
+</html>

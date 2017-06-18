@@ -1,0 +1,68 @@
+<!--views/author_delete.ejs-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<% include partials/header %>
+	</head>
+	<body>
+		<nav class="navbar navbar-toggleable-md  navbar-light bg-faded " style="background-color: #ee44aa;">	
+			<% include partials/navbar %>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-2">
+					<sidebar>
+						<% include partials/sidebar %>
+					</sidebar>
+				</div>
+				<div class="col-sm-1"></div>
+				<div  class="col-sm-9">
+					<content>
+						<div id="author-style" class="content-heading">
+							<div class="card">
+								<div class="card-header">
+									<%=title%>
+								</div>
+								<div class="card-block">
+									<h4 class="card-title">Author: <%=author.name%></h4>
+									<p class="card-text"><%=author.lifespan%></p>
+								</div>
+							</div>
+							<hr>
+							<%if(author_books.length){%>
+								<p><strong>Delete the followiing novels before attemting to delete this author.</strong></p>
+								<div style="margin-left:20px;margin-top:20px;">
+									<h4>Books</h4>
+									<dl>
+										<%if(author_books){%>
+											<%author_books.forEach(function(book){%>
+												<dt><a href="<%=book.url%>"><%=book.title%></a></dt>
+												<dd><%=book.summary%></dd>
+											<%})%>
+										<%}%>
+									</dl>
+								</div>
+							<%}else{%>
+								<hr/>
+								<p>Do you really want to delete this Author?</p>
+								<form action="<%=author.url+'/delete'%>" method="POST">
+									<div class="form-group"> 
+										<input type="hidden" name="authorid" id="authorid"
+										class="form-control" required 
+										value="<%=author._id%>" />
+									</div>
+									<button type="submit" class="btn btn-danger">Delete</button>
+								</form>
+							<%}%>
+						</div>
+						<hr>
+					</content>
+				</div>
+			</div>
+			<br>
+			<footer>
+				<% include partials/footer %>
+			</footer>
+		</div>
+</body>
+</html>

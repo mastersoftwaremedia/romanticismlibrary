@@ -1,0 +1,46 @@
+<!--views/genre_list.ejs-->
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<% include partials/header %>
+	</head>
+	<body>
+		<nav class="navbar navbar-toggleable-md  navbar-light bg-faded " style="background-color: #ee44aa;">
+			<% include partials/navbar %>
+		</nav>
+	
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-2">
+					<sidebar>
+						<%include partials/sidebar%>
+					</sidebar>				
+				</div>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-9">
+					<content>
+						<div class="content-heading">
+						<h1><%=title%></h1>
+						<div class="list-group">
+							<%if(genres){%>
+								<%genres.forEach(function(genre){%>
+									<a class="list-group-item list-group-item-action" href="<%=genre.url%>">
+										<span><h4><%=genre.name%></h4></span>
+									</a>
+								<%})%>
+							<%}else{%>
+								<p>There are no genres.</p>
+							<%}%>
+							
+						</div>
+						</div>  
+					</content>
+				</div>
+			</div>
+			<br>
+			<footer>
+				<% include partials/footer %>
+			</footer>
+		</div>
+</body>
+</html>

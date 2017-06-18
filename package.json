@@ -1,0 +1,36 @@
+{
+  "name": "locallibrary",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+	"node": "6.11.0"
+  },
+  "scripts": {
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "async": "^2.4.0",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "~1.17.1",
+    "compression": "^1.6.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "^2.6.8",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
+    "express": "~4.15.2",
+    "express-session": "^1.15.3",
+    "express-validator": "^3.2.0",
+    "helmet": "^3.6.1",
+    "moment": "^2.18.1",
+    "mongoose": "^4.9.9",
+    "morgan": "~1.8.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "~2.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
